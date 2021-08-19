@@ -4,7 +4,8 @@
   "description": "- next.js（react）\r - nuxt.js（vue）",
   "main": "index.js",
   "scripts": {
-    "start": "node ./build/bundle.js"
+    "start": "node ./build/bundle.js",
+    "build": "webpack --config webpack.server.js"
   },
   "repository": {
     "type": "git",
