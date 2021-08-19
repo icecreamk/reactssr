@@ -30,3 +30,13 @@ TTFP（首屏展示时间较长）
   
 ### react ssr
 - react代码在服务器执行，消耗服务器的性能
+
+
+```javascript
+import { renderToString } from 'react-dom/server'
+```
+由于`renderToString`只是将react代码简单转成string，
+因此ssr渲染时，事件不会响应。通过`同构`来解决这这样的问题。
+
+#### 同构
+- 相同的代码在服务器执行一次，客户端再执行一次（服务器代码负责渲染页面，客户端代码负责执行事件）
