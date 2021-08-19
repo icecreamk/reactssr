@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
       <title>ssr</title>
     </head>
     <body>
-      ${renderToString(<Home />)}
+      <div id="root">${renderToString(<Home />)}</div>
       <script src="/index.js"></script>
     </body>
   </html>
