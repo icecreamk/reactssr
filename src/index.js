@@ -4,12 +4,24 @@ import React from 'react'
 import { renderToString } from 'react-dom/server'
 
 const app = express()
-const port = 3000
+app.use(express.static('public'))
+
 
 app.get('/', (req, res) => {
-  res.send(renderToString(<Home />))
+  res.send(`
+  <html>
+    <head>
+      <title>ssr</title>
+    </head>
+    <body>
+      ${renderToString(<Home />)}
+      <script src="/index.js"></script>
+    </body>
+  </html>
+  `)
 })
 
+const port = 3000
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
