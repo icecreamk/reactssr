@@ -4,7 +4,7 @@
   "description": "- next.js（react）\r - nuxt.js（vue）",
   "main": "index.js",
   "scripts": {
-    "start": "node ./build/bundle.js",
+    "start": "nodemon --watch build --exec node \"build/bundle.js\"",
     "build": "webpack --config webpack.server.js --watch"
   },
   "repository": {
