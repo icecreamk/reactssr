@@ -48,3 +48,9 @@ import { renderToString } from 'react-dom/server'
 - 浏览器加载js文件（客户端的react代码）
 - js中React代码在浏览器端重新执行
 - js中的React代码接管页面操作
+
+#### 前端路由
+- 前端代码根据url返回不同路由的内容
+
+#### 服务端路由
+- 由于服务器无法知道url变化，所以需要通过get监听url`express中通过app.get`，最终路由代码在服务也执行一次
