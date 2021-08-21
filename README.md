@@ -55,3 +55,36 @@ import { renderToString } from 'react-dom/server'
 #### 服务端路由
 - 由于服务器无法知道url变化，所以需要通过get监听url`express中通过app.get`，最终路由代码在服务也执行一次
 - 服务器渲染只发生页面的第一次进入的时候，后面由前端的js代码接管页面，因此后续再点击切换路由时候，服务器不会重新执行路由
+
+
+#### 单例的store
+``` javascript
+import { applyMiddleware, createStore } from 'redux'
+import thunk from 'redux-thunk'
+
+const reducer = (state = { name: 'kk' }, action) => {
+  return state
+}
+
+const store = createStore(reducer, applyMiddleware(thunk))
+
+export default store
+```
+
+由于这样导出store是单例的，那么导致使用的时候，不同用户数据都相同
+
+### 正确的store创建方式
+``` javascript
+import { applyMiddleware, createStore } from 'redux'
+import thunk from 'redux-thunk'
+
+const reducer = (state = { name: 'kk' }, action) => {
+  return state
+}
+
+const getStore = () => {
+  return createStore(reducer, applyMiddleware(thunk))
+}
+
+export default getStore
+```
