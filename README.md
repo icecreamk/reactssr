@@ -54,3 +54,4 @@ import { renderToString } from 'react-dom/server'
 
 #### 服务端路由
 - 由于服务器无法知道url变化，所以需要通过get监听url`express中通过app.get`，最终路由代码在服务也执行一次
+- 服务器渲染只发生页面的第一次进入的时候，后面由前端的js代码接管页面，因此后续再点击切换路由时候，服务器不会重新执行路由
