@@ -1,4 +1,6 @@
 import { CHANGE_HOME_LIST } from './constants'
+import clientAxios from '../../../client/request'
+import serverAxios from '../../../server/request'
 
 export const getHomeList = (server) => {
   return (dispatch) => {
@@ -11,11 +13,13 @@ export const getHomeList = (server) => {
     // /api/new = 服务器根目录下/api/new
 
     // 因此
+    // let request = null
     // if (server) {
-    //   return axios.get('http://host.com/v1.0/api/new')
+    //  http://host.com/v1.0/api/new
+    //  request = serverAxios
     // } else {
-    //   // 使用proxy 代理
-    //   return axios.get('/api/new')
+    //  /api/new
+    //  request = clientAxios
     // }
     return new Promise((resolve) => {
       setTimeout(() => {
