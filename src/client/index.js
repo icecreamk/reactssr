@@ -5,11 +5,11 @@ import routes from '../Routes'
 import { renderRoutes } from 'react-router-config'
 
 import { Provider } from 'react-redux'
-import getStore from '../store'
+import { getClientStore } from '../store'
 
 const App = () => {
   return (
-    <Provider store={getStore()}>
+    <Provider store={getClientStore()}>
       <BrowserRouter>
         <div>
           {renderRoutes(routes)}
