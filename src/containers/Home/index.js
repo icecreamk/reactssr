@@ -27,6 +27,10 @@ class Home extends Component {
   }
 }
 
+Home.loadData = (store) => {
+  // 获取服务端渲染需要的数据
+  return store.dispatch(getHomeList())
+}
 
 const mapStateToProps = state => ({
   newsList: state.home.newsList

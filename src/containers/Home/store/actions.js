@@ -1,13 +1,19 @@
 import { CHANGE_HOME_LIST } from './constants'
 
-export const getHomeList = () => {
+export const getHomeList = (resolve) => {
   return (dispatch) => {
-    dispatch({
-      type: CHANGE_HOME_LIST,
-      list: [{
-        id: '1',
-        title: '1'
-      }]
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const list = [{
+          id: '1',
+          title: '1'
+        }]
+        dispatch({
+          type: CHANGE_HOME_LIST,
+          list
+        })
+        resolve()
+      }, 1000)
     })
   }
 }
