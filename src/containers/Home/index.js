@@ -29,7 +29,7 @@ class Home extends Component {
 
 Home.loadData = (store) => {
   // 获取服务端渲染需要的数据
-  return store.dispatch(getHomeList())
+  return store.dispatch(getHomeList(false))
 }
 
 const mapStateToProps = state => ({
@@ -38,7 +38,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getHomeList() {
-    dispatch(getHomeList())
+    dispatch(getHomeList(true))
   }
 })
 
